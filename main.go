@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func Reverse(s string) string {
 	runes := []rune(s)
@@ -12,11 +10,7 @@ func Reverse(s string) string {
 	return string(runes)
 }
 
-
 func main() {
-	//fmt.Println(Reverse("برای یک نفر تمامیت میا")[0])
-	s := rune('ا')
-	//sb := []rune{1576, 32, 1576, 1575}
+	s := "بر"
 	fmt.Println(s)
-	//fmt.Println(string(sb))
 }
