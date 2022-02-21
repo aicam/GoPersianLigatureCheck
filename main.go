@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/aicam/PersianSpellCheck/pkg"
+)
 
 func Reverse(s string) string {
 	runes := []rune(s)
@@ -12,5 +15,5 @@ func Reverse(s string) string {
 
 func main() {
 	s := "بر"
-	fmt.Println(s)
+	fmt.Println(Reverse(string(pkg.Correct([]rune(s), 0, nil))))
 }

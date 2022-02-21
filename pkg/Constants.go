@@ -39,6 +39,7 @@ var CharacterToUnicodeMap = map[rune][]rune{
 	'و': {'و', 'و', 'و', 'و'},
 	'ه': {'ه', 'ﻫ', 'ﻬ', 'ﻪ'},
 	'ی': {'ی', 'ﯾ', 'ﯿ', 'ﯽ'},
+	' ': {' ', ' ', ' ', ' '},
 }
 
 const IsConnectableBefore = 0
@@ -78,4 +79,5 @@ var CharacterConnectable = map[rune][]bool{
 	'و': {false, false},
 	'ه': {true, true},
 	'ی': {true, true},
+	' ': {false, false},
 }
