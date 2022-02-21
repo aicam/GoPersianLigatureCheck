@@ -5,15 +5,11 @@ import (
 	"github.com/aicam/PersianSpellCheck/pkg"
 )
 
-func Reverse(s string) string {
-	runes := []rune(s)
-	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
-		runes[i], runes[j] = runes[j], runes[i]
-	}
-	return string(runes)
-}
-
 func main() {
-	s := "بر"
-	fmt.Println(Reverse(string(pkg.Correct([]rune(s), 0, nil))))
+	s1 := "سلام به همگیه دوستان"
+	s2 := "من در تمامی ادوار کون میدهم"
+	s3 := "کس ننه چوچاغ"
+	fmt.Println(pkg.Correct(s1))
+	fmt.Println(pkg.Correct(s2))
+	fmt.Println(pkg.Correct(s3))
 }

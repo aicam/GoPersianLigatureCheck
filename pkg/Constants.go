@@ -1,7 +1,7 @@
 package pkg
 
 const SpaceFirstSpaceLast = 0
-const SpaceFisrtCharacterLast = 1
+const SpaceFirstCharacterLast = 1
 const CharacterFirstCharacterLast = 2
 const CharacterFirstSpaceLast = 3
 
