@@ -1,15 +1,54 @@
 package pkg
 
+import "log"
+
 func Correct(sentence string) string {
-	return reverse(string(CorrectRune([]rune(sentence), 0, nil)))
+	strFullReverse := Reverse(CorrectRune([]rune(sentence), 0, nil))
+	log.Println(strFullReverse)
+	var startIndex = 0
+	var endIndex = 0
+	for i := 0; i < len(strFullReverse); i++ {
+		if runeInSlice(strFullReverse[i], PersianNumbers) {
+			startIndex = i
+			endIndex = i
+			log.Println("Found first number in ", startIndex)
+			for j := i; j < len(strFullReverse); j++ {
+				if runeInSlice(strFullReverse[j], PersianNumbers) {
+					endIndex += 1
+				} else {
+					break
+				}
+			}
+			if endIndex != startIndex {
+				for j := startIndex; j < (endIndex+startIndex)/2; j++ {
+					tmp := strFullReverse[j]
+					strFullReverse[j] = strFullReverse[endIndex+startIndex-j-1]
+					strFullReverse[endIndex+startIndex-j-1] = tmp
+				}
+				i = endIndex
+				startIndex = 0
+				endIndex = 0
+			}
+		}
+	}
+	return string(strFullReverse)
 }
 
-func reverse(s string) string {
+func runeInSlice(a rune, list []rune) bool {
+	for _, b := range list {
+		if b == a {
+			return true
+		}
+	}
+	return false
+}
+
+func Reverse(s []rune) []rune {
 	runes := []rune(s)
 	for i, j := 0, len(runes)-1; i < j; i, j = i+1, j-1 {
 		runes[i], runes[j] = runes[j], runes[i]
 	}
-	return string(runes)
+	return runes
 }
 
 func CorrectRune(sentence []rune, pointer int, correctStr []rune) []rune {
