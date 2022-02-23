@@ -1,17 +1,13 @@
 package pkg
 
-import "log"
-
 func Correct(sentence string) string {
 	strFullReverse := Reverse(CorrectRune([]rune(sentence), 0, nil))
-	log.Println(strFullReverse)
 	var startIndex = 0
 	var endIndex = 0
 	for i := 0; i < len(strFullReverse); i++ {
 		if runeInSlice(strFullReverse[i], PersianNumbers) {
 			startIndex = i
 			endIndex = i
-			log.Println("Found first number in ", startIndex)
 			for j := i; j < len(strFullReverse); j++ {
 				if runeInSlice(strFullReverse[j], PersianNumbers) {
 					endIndex += 1
