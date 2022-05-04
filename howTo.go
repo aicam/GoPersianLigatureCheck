@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/aicam/PersianSpellCheck/pkg"
+	"github.com/aicam/GoPersianLigatureCheck/pkg"
 	"log"
 )
 
